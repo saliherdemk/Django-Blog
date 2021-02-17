@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<style>
+  body{
+    background-image: none;
+  }
+</style>
+<h3 style="color: white;">Kontrol Paneli</h3>
+<hr>
+
+<p style="color: white;">
+Hoşgeldin , <small>{{request.user.username}}</small></p>
+<hr>
+
+<a class = "btn btn-success" href="{% url 'article:addarticle'%}">Tablo Ekle</a>
+<hr>
+
+
+{% if articles %}
+
+<table class="table" >
+  <thead>
+    <tr style="color: white;">
+      <th scope="col" >Id</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Yayınlayan</th>
+      <th scope="col">Tarih </th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+
+
+  {% for article in  articles %}
+  <tr>
+    <th style="color: white;" scope="row">{{article.id}} </th>
+        <td><a style="color: black;"  href="{% url 'article:detail' article.id %}">{{article.title}}</a></td>
+        <td style="color: white;" >{{article.author}}</td>
+        <td style="color: white;">{{article.created_date}}</td>
+        <td ><a href="{% url 'article:update' article.id %}" class = "btn btn-primary">Güncelle</a></td>
+        <td><a href="{% url 'article:delete' article.id %}" class = "btn btn-danger"> Sil</a></td>
+
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+{% else %}
+
+<div class = "alert alert-danger">Henüz hiç tablo yayınlamamışsınız.</div>
+{% endif %}
+
+
+
+{% endblock  %}
+
+{% block bg %}
+
+<div style="
+animation: transitionIn 1s;
+position: absolute;
+top: 0;
+right: 0;
+width: 952px;
+height: 2000px;
+background-image: linear-gradient(to bottom left,black, white);
+z-index: -1;"></div>
+
+<div style="
+animation: transitionIn 1s;
+position: absolute;
+top: 0;
+left: 0;
+width: 952px;
+height: 2000px;
+background-image: linear-gradient(to bottom right,black, white);
+z-index: -1;"></div>
+
+
+
+
+{% endblock bg %}

@@ -1,0 +1,106 @@
+@keyframes transitionIn{
+    from{
+        opacity: 0;
+        
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+
+.myself{
+    background-color: grey;
+    opacity: .5;
+    float: left ,top ;
+    width: 1900px;
+    height: 800px;
+    border: 3px solid black;
+    padding: 10px;
+    margin:0;
+    filter: blur(100px);
+    z-index: -1;
+
+}
+
+.blur{
+    position: fixed;
+    left: 600px;
+    width: 650px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.356);
+    margin: 0;
+    padding: 10px;
+    filter: blur(100px);
+
+}
+
+
+
+.banner-text{
+    animation: transitionIn 5s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 45%;
+    padding: 40px 0;
+    text-align: center;
+    border-top-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 10px inset #fff;
+    z-index: 10;
+}
+h5{
+    font-size: 70px;
+    margin: 0;
+}
+
+.left-to-right{
+    animation: transitionIn 1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: 969px;
+    background-image: linear-gradient(to right,black, grey);
+
+}
+
+.right-to-left{
+    animation: transitionIn 1s;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 960px;
+    height: 969px;
+    background-image: linear-gradient(to left,black, grey);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

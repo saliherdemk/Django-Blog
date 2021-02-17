@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<style>
+  body{
+    
+    background-image: none;
+  }
+</style>
+
+<div class="row"  >
+  <div class="col-md-6 offset-md-3" ><form method = "post" >
+    {% csrf_token %}
+    {{form|crispy}}
+    <br>
+    <button type ="submit" class ="btn btn-success">Giriş Yap</button>
+
+</form></div>
+</div>
+
+
+{% endblock  %}
+
+{% block bg %}
+<br><br>
+<div class = "left-to-right"></div>
+
+<div class ="right-to-left"></div>
+<div class ="blur"></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+{% endblock bg %}

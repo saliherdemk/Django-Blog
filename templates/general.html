@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<style>
+  body{
+    background-image: none;
+  }
+</style>
+<h3 style="color: white;">Kontrol Paneli</h3>
+<hr>
+
+<p style="color: white;">
+Hoşgeldin , <small>{{request.user.username}}</small></p>
+<hr>
+
+<a class = "btn btn-primary" style="margin-left: 40%;margin-right: 25px;"  href="{% url 'article:dashboard'%}">Tablolarım</a>
+<a class = "btn btn-primary"  href="{% url 'note:dashboard'%}">Notlarım</a>
+<hr>
+
+
+
+
+
+{% endblock  %}
+
+{% block bg %}
+
+<div style="
+animation: transitionIn 1s;
+position: absolute;
+top: 0;
+right: 0;
+width: 952px;
+height: 2000px;
+background-image: linear-gradient(to bottom left,black, white);
+z-index: -1;"></div>
+
+<div style="
+animation: transitionIn 1s;
+position: absolute;
+top: 0;
+left: 0;
+width: 952px;
+height: 2000px;
+background-image: linear-gradient(to bottom right,black, white);
+z-index: -1;"></div>
+
+
+
+
+{% endblock bg %}

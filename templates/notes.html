@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+  body{
+
+    background-color: #efefef;
+  }
+</style>
+
+
+
+
+{% if notes %}
+
+<h5 style="color: black;">Notlar</h5>
+        <hr>
+
+        <div class = "row" >
+
+            <div class="col-lg-8">
+            <form>
+                {% csrf_token %}
+                <input type="text" name="keyword" class ="input-sm" placeholder="Ara">
+                <button type="submit" class="btn btn-outline-primary">Ara</button>
+
+            </form>
+
+            </div>
+
+
+        </div>
+        <hr>
+
+{% for note in notes %}
+
+
+
+<div class="container"  >
+
+
+
+    <div class="row"  >
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8" style="border-style: groove;">
+
+        <!-- Title -->
+        <a href="{% url 'note:detail' note.id %}"><h1 class="mt-4" style="color: black;">{{note.title}}</h1> </a>
+
+        <!-- Author -->
+        <p class="lead">
+          Paylaşan :
+          {{note.publisher}}
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>{{note.created_date}}</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        {% if note.note_image %}
+                <img class="img-fluid rounded" src="{{note.note_image.url}}" alt="">
+
+
+        {% endif %}
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead">
+        {{note.content | safe | truncatewords:10}}</p>
+        <a style = "float:right" href="{% url 'note:detail' note.id %}" class = "btn btn-primary">Devamını Oku</a>
+        <br>
+
+
+
+
+        <hr>
+
+      </div>
+
+
+
+{% endfor %}
+
+
+
+{% else %}
+<div class = "alert alert-danger"> Not Bulunamadı</div>
+
+{% endif %}
+
+{% endblock body %}
+
+{% block bg %}
+
+<div style="animation: transitionIn 1s;
+position: fixed;
+top: 0;
+right: 0;
+width: 2000px;
+height: 80px;
+background-image: linear-gradient(to bottom ,  rgba(0, 0, 0, 0.623), #efefef);"></div>
+
+
+
+
+
+
+{% endblock bg %}

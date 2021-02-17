@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<style>
+  body{
+    background-image: none;
+  }
+</style>
+<h3 style="color: white;">Kontrol Paneli</h3>
+<hr>
+
+<p style="color: white;">
+Hoşgeldin , <small>{{request.user.username}}</small></p>
+<hr>
+
+<a class = "btn btn-success"  href="{% url 'note:addnote'%}">Not Ekle</a>
+<hr>
+
+
+{% if notes %}
+
+<table class="table" >
+  <thead>
+    <tr style="color: white;">
+      <th scope="col" >Id</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Yayınlayan</th>
+      <th scope="col">Tarih </th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+
+
+  {% for note in  notes %}
+  <tr>
+    <th style="color: white;" scope="row">{{note.id}} </th>
+        <td><a style="color: black;"  href="{% url 'note:detail' note.id %}">{{note.title}}</a></td>
+        <td style="color: white;" >{{note.publisher}}</td>
+        <td style="color: white;">{{note.created_date}}</td>
+        <td ><a href="{% url 'note:update' note.id %}" class = "btn btn-primary">Güncelle</a></td>
+        <td><a href="{% url 'note:delete' note.id %}" class = "btn btn-danger"> Sil</a></td>
+
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+{% else %}
+
+<div class = "alert alert-danger">Henüz hiç not yayınlamamışsınız.</div>
+{% endif %}
+
+
+
+{% endblock  %}
+
+{% block bg %}
+
+<div style="
+animation: transitionIn 1s;
+position: absolute;
+top: 0;
+right: 0;
+width: 952px;
+height: 2000px;
+background-image: linear-gradient(to bottom left,black, white);
+z-index: -1;"></div>
+
+<div style="
+animation: transitionIn 1s;
+position: absolute;
+top: 0;
+left: 0;
+width: 952px;
+height: 2000px;
+background-image: linear-gradient(to bottom right,black, white);
+z-index: -1;"></div>
+
+
+
+
+{% endblock bg %}

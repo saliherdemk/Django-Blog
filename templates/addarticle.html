@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<br>
+<div class="row">
+  <div class="col-md-6 offset-md-3"><form method = "post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.media}}
+    {{form|crispy}}
+    <br>
+    <button type ="submit" class ="btn btn-success">Tablo Ekle</button>
+
+</form></div>
+</div>
+<style>
+  body{
+    background-color: #efefef;
+  }
+</style>
+
+
+  
+{% endblock  %}
+
+{% block bg %}
+<div style="animation: transitionIn 1s;
+position: absolute;
+top: 0;
+right: 0;
+width: 2000px;
+height: 80px;
+background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.623), #efefef);"></div>
+  
+{% endblock bg %}

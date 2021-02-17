@@ -1,1 +1,3 @@
-#Django-Blog
+Django-Blog
+
+http://saliherdemkaymak.pythonanywhere.com/

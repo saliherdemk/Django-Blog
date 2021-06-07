@@ -4,49 +4,31 @@
 
 <style>
   body{
-    background-image: none;
+    background-image: url(/media/back1.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+    background-position:center center;
   }
+
 </style>
-<h3 style="color: white;">Kontrol Paneli</h3>
+<h1 style="color: white;">Kontrol Paneli</h1>
 <hr>
 
-<p style="color: white;">
-Hoşgeldin , <small>{{request.user.username}}</small></p>
+<h4 style="color: white;">
+Hoşgeldin  <small>{{request.user.username}}</small></h4>
 <hr>
 
-<a class = "btn btn-primary" style="margin-left: 40%;margin-right: 25px;"  href="{% url 'article:dashboard'%}">Tablolarım</a>
-<a class = "btn btn-primary"  href="{% url 'note:dashboard'%}">Notlarım</a>
+<a class = "btn btn-primary" style="margin-left: 15%"  href="{% url 'article:dashboard'%}">Tablolarım</a>
+<a class = "btn btn-primary"  href="{% url 'note:dashboard'%}" style="left:60%;position:absolute">Notlarım</a>
 <hr>
-
-
-
 
 
 {% endblock  %}
 
 {% block bg %}
-
-<div style="
-animation: transitionIn 1s;
-position: absolute;
-top: 0;
-right: 0;
-width: 952px;
-height: 2000px;
-background-image: linear-gradient(to bottom left,black, white);
-z-index: -1;"></div>
-
-<div style="
-animation: transitionIn 1s;
-position: absolute;
-top: 0;
-left: 0;
-width: 952px;
-height: 2000px;
-background-image: linear-gradient(to bottom right,black, white);
-z-index: -1;"></div>
-
-
 
 
 {% endblock bg %}

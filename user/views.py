@@ -2,11 +2,11 @@ from typing import NewType
 from django.http import request
 from django.shortcuts import render,redirect
 from . import forms
-from django.contrib import messages 
+from django.contrib import messages
 
 from django.contrib.auth.models import User
 from django.contrib.auth import login,authenticate, logout
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -16,7 +16,7 @@ def register(request):
         messages.info(request,"Kurnazlık Yapma :)")
 
         return redirect("index")
-    
+
     else :
         form = forms.RegisterForm(request.POST or None)
         if form.is_valid():
@@ -46,7 +46,7 @@ def login_user(request):
 
         context = {
             "form" : form}
-        
+
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
@@ -61,8 +61,8 @@ def login_user(request):
             login(request,user)
             return redirect("index")
         return render(request,"login.html",context)
-        
-   
+
+
 def logout_user(request):
     logout(request)
     messages.success(request,"Başarıyla Çıkış Yapıldı")
@@ -70,3 +70,6 @@ def logout_user(request):
 
 def dashboard(request):
     return render(request,"general.html")
+
+def görkem(request):
+    return render(request,"görkem.html")

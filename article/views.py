@@ -15,8 +15,9 @@ def articles(request):
         return render(request,"articles.html",{"articles":articles})
 
     articles = Article.objects.all()
+    articles_length = articles.__len__()
 
-    return render(request,"articles.html",{"articles" : articles })
+    return render(request,"articles.html",{"articles" : articles, "articles_length" : articles_length })
 
 def index(request):
     return render(request,"index.html")
@@ -104,4 +105,3 @@ def comment(request,id):
         return render(request,"detail.html",{"article" : article})
 
 
-    

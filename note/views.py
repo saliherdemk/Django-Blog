@@ -15,8 +15,9 @@ def notes(request):
         return render(request,"notes.html",{"notes":notes})
 
     notes = Note.objects.all()
+    notes_length = notes.__len__()
 
-    return render(request,"notes.html",{"notes" : notes })
+    return render(request,"notes.html",{"notes" : notes, "notes_length" : notes_length })
 
 def index(request):
     return render(request,"index.html")
@@ -52,9 +53,9 @@ def detail(request,id):
 
 @login_required(login_url = "user:login")
 def update(request,id):
-    
+
     note = Note.objects.filter(id = id).first()
-    if note.publisher != request.user: 
+    if note.publisher != request.user:
         messages.error(request, "Bu nota erişme yetkiniz yok veya böyle bir not yok.")
         return redirect("note:dashboard")
     else:
@@ -67,12 +68,12 @@ def update(request,id):
             messages.success(request,"Not Başarıyla Güncellendi.")
             return redirect("note:dashboard")
         return render(request,"noteupdate.html",{"form" : form,"note" : note})
-    
+
 
 @login_required(login_url = "user:login")
 def delete(request,id):
     note = Note.objects.filter(id = id).first()
-    if note.publisher != request.user: 
+    if note.publisher != request.user:
         messages.error(request, "Bu nota erişme yetkiniz yok veya böyle bir not yok.")
         return redirect("note:dashboard")
     else :
@@ -83,5 +84,8 @@ def delete(request,id):
             return redirect("note:dashboard")
         else :
             return render(request,"notedetail.html",{"note " : note})
+
+def life(request):
+    return render(request,"life.html")
 
 

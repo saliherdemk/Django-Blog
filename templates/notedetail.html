@@ -7,6 +7,13 @@
 <style>
   body{
     background-color: #efefef;
+    background-image : url(/media/Light-Grey-Background-Hd-5-1.jpg);
+    background-repeat : no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+    background-position:center center;
   }
 </style>
 
@@ -48,16 +55,12 @@
         </p>
         <hr>
         <p class = "lead">
-            -{{note.source | safe}}
+            {{note.source | safe}}
         </p>
 
 
           </div>
         </div>
-
-
-
-      
 
       </div>
     </div>
@@ -68,18 +71,9 @@
 {% endif %}
 
 
-
-
-
 {% endblock  %}
 
 {% block bg %}
-<div style="animation: transitionIn 1s;
-position: absolute;
-top: 0;
-right: 0;
-width: 2000px;
-height: 80px;
-background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.623), #efefef);"></div>
+
 
 {% endblock  %}

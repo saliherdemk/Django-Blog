@@ -6,24 +6,52 @@
   body{
 
     background-color: #efefef;
+    background-image : url(/media/Light-Grey-Background-Hd-5-1.jpg);
+    background-repeat : no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+    background-position:center center;
   }
+
+  #len{
+      position: relative;
+      left : 5%;
+      font-size:20px;
+  }
+
+  #appear{
+      display:none;
+  }
+
+  @media all and (max-width:480px){
+      #len{
+          display:none;
+      }
+
+      #appear{
+          display:flex;
+      }
+  }
+
 </style>
-
-
 
 
 {% if notes %}
 
-<h5 style="color: black;">Notlar</h5>
+<h1 style="color: black;">Notlar</h1>
         <hr>
 
         <div class = "row" >
 
             <div class="col-lg-8">
+                <strong id="appear">{{notes_length}} Not Yayınlanmış</strong>
             <form>
                 {% csrf_token %}
                 <input type="text" name="keyword" class ="input-sm" placeholder="Ara">
                 <button type="submit" class="btn btn-outline-primary">Ara</button>
+                <strong id="len">{{notes_length}} Not Yayınlanmış</strong>
 
             </form>
 
@@ -77,17 +105,11 @@
         <a style = "float:right" href="{% url 'note:detail' note.id %}" class = "btn btn-primary">Devamını Oku</a>
         <br>
 
-
-
-
         <hr>
 
       </div>
 
-
-
 {% endfor %}
-
 
 
 {% else %}
@@ -98,18 +120,5 @@
 {% endblock body %}
 
 {% block bg %}
-
-<div style="animation: transitionIn 1s;
-position: fixed;
-top: 0;
-right: 0;
-width: 2000px;
-height: 80px;
-background-image: linear-gradient(to bottom ,  rgba(0, 0, 0, 0.623), #efefef);"></div>
-
-
-
-
-
 
 {% endblock bg %}

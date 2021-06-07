@@ -7,6 +7,13 @@
 <style>
   body{
     background-color: #efefef;
+    background-image : url(/media/Light-Grey-Background-Hd-5-1.jpg);
+    background-repeat : no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+    background-position:center center;
   }
 </style>
 
@@ -74,13 +81,9 @@
 
         {% else %}
 
-        <div class = "alert alert-info">Bu Makaleye Henüz Yorum Yapılmamış.</div>
+        <div class = "alert alert-info">Bu Tabloya Henüz Yorum Yapılmamış.</div>
 
         {% endif %}
-
-
-
-
 
         <!-- Comments Form -->
         <div class="card my-4">
@@ -111,19 +114,9 @@
 <div class = "alert alert-danger">Kayboldun Galiba</div>
 {% endif %}
 
-
-
-
-
 {% endblock  %}
 
 {% block bg %}
-<div style="animation: transitionIn 1s;
-position: absolute;
-top: 0;
-right: 0;
-width: 2000px;
-height: 80px;
-background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.623), #efefef);"></div>
+
 
 {% endblock  %}

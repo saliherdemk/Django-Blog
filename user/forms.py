@@ -5,7 +5,7 @@ class RegisterForm(forms.Form):
     username = forms.CharField(max_length= 50, label="Kullanıcı Adı ")
     password = forms.CharField(max_length=30,label="Parola ",widget= forms.PasswordInput)
     confirm = forms.CharField(max_length=30,label="Parolayı Doğrula ",widget=forms.PasswordInput)
-    
+
     def clean(self) :
         username = self.cleaned_data.get("username")
         password = self.cleaned_data.get("password")
@@ -19,7 +19,7 @@ class RegisterForm(forms.Form):
             "password" : password,
         }
         return values
-    
+
 class LoginForm(forms.Form):
     username = forms.CharField(label="Kullanıcı Adı ")
     password = forms.CharField(label="Parola",widget=PasswordInput)

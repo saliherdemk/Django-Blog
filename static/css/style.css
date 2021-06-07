@@ -1,7 +1,7 @@
 @keyframes transitionIn{
     from{
         opacity: 0;
-        
+
     }
 
     to{
@@ -9,20 +9,6 @@
     }
 }
 
-
-.myself{
-    background-color: grey;
-    opacity: .5;
-    float: left ,top ;
-    width: 1900px;
-    height: 800px;
-    border: 3px solid black;
-    padding: 10px;
-    margin:0;
-    filter: blur(100px);
-    z-index: -1;
-
-}
 
 .blur{
     position: fixed;
@@ -44,18 +30,18 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 45%;
+    width: 60%;
     padding: 40px 0;
     text-align: center;
     border-top-left-radius: 70px;
     border-bottom-right-radius: 70px;
     background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
+    color: black;
     border: 10px inset #fff;
     z-index: 10;
 }
-h5{
-    font-size: 70px;
+.banner-text h5{
+    font-size: 3vw;
     margin: 0;
 }
 

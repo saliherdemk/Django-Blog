@@ -8,12 +8,18 @@
   body{
     background-image: none;
     background-image: url(/media/suicide.1920x0.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+    background-position:center center;
   }
 </style>
 
 
 <div class="row">
-  <div class="col-md-6 offset-md-3"><form method = "post">
+  <div class="col-md-6 offset-md-3"><form method = "post" style="color:white">
     {% csrf_token %}
     {{form|crispy}}
     <br>

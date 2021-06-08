@@ -71,5 +71,3 @@ def logout_user(request):
 def dashboard(request):
     return render(request,"general.html")
 
-def görkem(request):
-    return render(request,"görkem.html")

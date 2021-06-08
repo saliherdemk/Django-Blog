@@ -69,5 +69,3 @@ def delete(request,id):
 
 def life(request):
     return render(request,"life.html")
-
-

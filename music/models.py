@@ -24,7 +24,7 @@ class Music(models.Model):
     audio = models.FileField(verbose_name="Ses ",null=True,storage=OverwriteStorage())
     created_date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return self.title
+        return self.piece
     class Meta :
         ordering = ['-created_date']
 

@@ -26,7 +26,7 @@ SECRET_KEY = '$em3an#m)n^pm$&9y+&w(m^%e+f+q$+g-(%n4d@-l9)fx+b5b-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['saliherdemkaymak.pythonanywhere.com']
+ALLOWED_HOSTS = ['saliherdemkaymak.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'django_cleanup',
     'note',
+    'music',
 ]
 
 MIDDLEWARE = [

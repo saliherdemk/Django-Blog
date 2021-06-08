@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<style>
+  body{
+    background-image: url(/media/back.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+    background-position:center center;
+  }
+</style>
+<h3 style="color: white;">Kontrol Paneli</h3>
+<hr>
+
+<p style="color: white;">
+Hoşgeldin , <small>{{request.user.username}}</small></p>
+<hr>
+
+<a class = "btn btn-success"  href="{% url 'music:addmusic'%}">Eser Ekle</a>
+<hr>
+
+
+{% if musics %}
+
+<table class="table" >
+  <thead>
+    <tr style="color: white;">
+      <th scope="col" >Id</th>
+      <th scope="col">Eser</th>
+      <th scope="col">Yayınlayan</th>
+      <th scope="col">Tarih </th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+
+
+  {% for music in  musics %}
+  <tr>
+    <th style="color: white;" scope="row">{{music.id}} </th>
+        <td style="color: white;" >{{music.piece}}</td>
+        <td style="color: white;" >{{music.publisher}}</td>
+        <td style="color: white;">{{music.created_date}}</td>
+        <td><a href="{% url 'music:delete' music.id %}" class = "btn btn-danger"> Sil</a></td>
+
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+{% else %}
+
+<div class = "alert alert-danger">Henüz hiç eser yayınlamamışsınız.</div>
+{% endif %}
+
+
+
+{% endblock  %}
+
+{% block bg %}
+
+
+{% endblock bg %}

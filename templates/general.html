@@ -21,8 +21,11 @@
 Hoşgeldin  <small>{{request.user.username}}</small></h4>
 <hr>
 
-<a class = "btn btn-primary" style="margin-left: 15%"  href="{% url 'article:dashboard'%}">Tablolarım</a>
-<a class = "btn btn-primary"  href="{% url 'note:dashboard'%}" style="left:60%;position:absolute">Notlarım</a>
+<div style="position: relative;justify-content:space-between;display:flex">
+<a class = "btn btn-primary" href="{% url 'article:dashboard'%}">Tablolarım</a>
+<a class = "btn btn-primary"  href="{% url 'note:dashboard'%}">Notlarım</a>
+<a class = "btn btn-primary"  href="{% url 'music:dashboard'%}">Eserlerim</a>
+</div>
 <hr>
 
 

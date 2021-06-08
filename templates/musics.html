@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+  body{
+
+    background-color: #efefef;
+    background-image : url(/media/Light-Grey-Background-Hd-5-1.jpg);
+    background-repeat : no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+    background-position:center center;
+  }
+
+  #len{
+      position: relative;
+      left : 5%;
+      font-size:20px;
+  }
+
+  #appear{
+      display:none;
+  }
+
+  @media all and (max-width:480px){
+      #len{
+          display:none;
+      }
+
+      #appear{
+          display:flex;
+      }
+  }
+
+</style>
+
+
+{% if musics %}
+
+<h1 style="color: black;">Eserler</h1>
+        <hr>
+
+        <div class = "row" >
+
+            <div class="col-lg-8">
+                <strong id="appear">{{musics_length}} Eser Yayınlanmış</strong>
+            <form>
+                {% csrf_token %}
+                <input type="text" name="keyword" class ="input-sm" placeholder="Ara">
+                <button type="submit" class="btn btn-outline-primary">Ara</button>
+                <strong id="len">{{musics_length}} Eser Yayınlanmış</strong>
+
+            </form>
+
+            </div>
+
+
+        </div>
+        <hr>
+
+{% for music in musics %}
+
+
+
+<div class="container"  >
+
+
+
+    <div class="row"  >
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8" style="border-style: groove;">
+
+        <!-- Title -->
+        <a href="{% url 'music:detail' music.id %}"><h1 class="mt-4" style="color: black;">{{music.piece}}</h1> </a>
+
+        <!-- Author -->
+        <p class="lead">
+          Paylaşan :
+          {{music.publisher}}
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>{{music.created_date}}</p>
+
+        <hr>
+
+        <h3>{{music.composer}}</h3>
+
+        <hr>
+
+        {% if music.picture%}
+          <img class="img-fluid rounded" style="width: 350px;height:300px" src="{{music.picture.url}}" alt="">
+
+        {% endif %}
+
+        <audio controls>
+          <source src="/media/{{music.audio}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+        <hr>
+
+      </div>
+
+{% endfor %}
+
+
+{% else %}
+<div class = "alert alert-danger"> Eser Bulunamadı</div>
+
+{% endif %}
+
+{% endblock body %}
+
+{% block bg %}
+
+{% endblock bg %}

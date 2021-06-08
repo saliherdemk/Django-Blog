@@ -45,12 +45,12 @@
         <hr>
 
         {% if music.picture%}
-          <img class="img-fluid rounded" style="width: 350px;height:300px" src="{{music.picture.url}}" alt="">
+          <img class="img-fluid rounded" style="width: 350px;height:350px" src="{{music.picture.url}}" alt="">
 
         {% endif %}
 
         <audio controls>
-          <source src="/media/{{music.audio}}" type="audio/mpeg">
+          <source src="/media/{{music.audio}}" type="audio/mp3">
         Your browser does not support the audio element.
         </audio>
         <hr>

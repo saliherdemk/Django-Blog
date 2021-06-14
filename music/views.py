@@ -11,7 +11,7 @@ def musics(request):
     keyword = request.GET.get("keyword")
 
     if keyword :
-        musics = Music.objects.filter(title__contains = keyword)
+        musics = Music.objects.filter(piece__contains = keyword)
         return render(request,"musics.html",{"musics":musics})
 
     musics = Music.objects.all()
@@ -41,7 +41,7 @@ def addmusic(request):
         music.publisher = request.user
         music.save()
 
-        messages.success(request,"Not Başarıyla Oluşturuldu.")
+        messages.success(request,"Eser Başarıyla Oluşturuldu.")
         return redirect("music:dashboard")
 
     return render(request,"addmusic.html",{"form" : form})
@@ -56,12 +56,12 @@ def detail(request,id):
 def delete(request,id):
     music = Music.objects.filter(id = id).first()
     if music.publisher != request.user:
-        messages.error(request, "Bu nota erişme yetkiniz yok veya böyle bir not yok.")
+        messages.error(request, "Bu esere yetkiniz yok veya böyle bir eser yok.")
         return redirect("music:dashboard")
     else :
         if music :
             music.delete()
-            messages.success(request,"Not Başarıyla Silindi")
+            messages.success(request,"Eser Başarıyla Silindi")
 
             return redirect("music:dashboard")
         else :

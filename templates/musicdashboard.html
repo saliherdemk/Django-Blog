@@ -31,6 +31,7 @@ Hoşgeldin , <small>{{request.user.username}}</small></p>
     <tr style="color: white;">
       <th scope="col" >Id</th>
       <th scope="col">Eser</th>
+      <th scope="col">Sanatçı</th>
       <th scope="col">Yayınlayan</th>
       <th scope="col">Tarih </th>
     </tr>
@@ -44,6 +45,7 @@ Hoşgeldin , <small>{{request.user.username}}</small></p>
   <tr>
     <th style="color: white;" scope="row">{{music.id}} </th>
         <td style="color: white;" >{{music.piece}}</td>
+        <td style="color: white;" >{{music.composer}}</td>
         <td style="color: white;" >{{music.publisher}}</td>
         <td style="color: white;">{{music.created_date}}</td>
         <td><a href="{% url 'music:delete' music.id %}" class = "btn btn-danger"> Sil</a></td>

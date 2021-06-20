@@ -39,7 +39,7 @@ def addarticle(request):
         article.author = request.user
         article.save()
 
-        messages.success(request,"Makale Başarıyla Oluşturuldu.")
+        messages.success(request,"Tablo Başarıyla Oluşturuldu.")
         return redirect("article:dashboard")
 
     return render(request,"addarticle.html",{"form" : form})
